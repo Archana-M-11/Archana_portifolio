@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Archana M — DATA & AI Enthusiast</title>
+  <title>Archana M — Python Developer </title>
   <link rel="icon" href="archana_new.jpg" type="image/jpeg">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -547,6 +547,54 @@ section { padding: 4rem 1rem; }
   filter: blur(0px);
 }
 
+/* ── ACHIEVEMENTS (horizontal cards, slide-in from sides) ── */
+.achievement-grid{
+  display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  gap:2rem;
+  max-width:1100px;
+  margin:auto;
+}
+.achievement-item{
+  flex:1 1 320px;
+  background:white;
+  padding:2rem;
+  border-radius:30px;
+  box-shadow:0 15px 40px rgba(99,102,241,.08);
+  transition:transform .4s ease, box-shadow .4s ease;
+  text-align:center;
+}
+.achievement-item:hover{
+  transform:translateY(-8px);
+}
+.achievement-icon{
+  font-size:3rem;
+  margin-bottom:1rem;
+}
+.achievement-item h3{
+  font-size:1.4rem;
+  margin-bottom:1rem;
+}
+.achievement-item p{
+  color:#6b7280;
+  line-height:1.8;
+}
+
+/* slide-in-on-scroll animation, direction-aware */
+.slide-in{
+  opacity:0;
+  transition:
+    opacity .8s cubic-bezier(.16,1,.3,1),
+    transform .8s cubic-bezier(.16,1,.3,1);
+}
+.slide-in.from-left{ transform: translateX(-90px); }
+.slide-in.from-right{ transform: translateX(90px); }
+.slide-in.shown{
+  opacity:1;
+  transform: translateX(0);
+}
+
 /* ── BEYOND TECH ── */
 .beyond-layout{
   display:grid;
@@ -580,50 +628,6 @@ section { padding: 4rem 1rem; }
 .beyond-right h3{ font-size: clamp(1.4rem, 3vw, 2rem); margin-bottom:1rem; }
 .beyond-right p{ line-height:2; color:#6b7280; font-size:clamp(.9rem,1.5vw,1.05rem); }
 
-/* ── MOTTO ── */
-.motto-wrapper{
-  display:grid;
-  grid-template-columns: 90px 1fr;
-  gap:1.5rem;
-  align-items:center;
-  max-width:1000px;
-  margin:auto;
-}
-.motto-side-text{
-  display:flex;
-  flex-direction:column;
-  gap:.8rem;
-  font-size:.85rem;
-  font-weight:700;
-  letter-spacing:4px;
-  color:#6366f1;
-}
-.motto-card{
-  position:relative;
-  background:linear-gradient(135deg, rgba(255,255,255,.9), rgba(237,233,254,.7));
-  backdrop-filter: blur(20px);
-  border-radius:36px;
-  padding: clamp(1.5rem, 4vw, 4rem);
-  overflow:hidden;
-  box-shadow:0 20px 50px rgba(99,102,241,.10);
-  transition:.4s ease;
-}
-.motto-card:hover{ transform:translateY(-8px); }
-.quote-mark{
-  position:absolute;
-  top:-20px;
-  left:30px;
-  font-size:7rem;
-  color:rgba(99,102,241,.12);
-  font-family:serif;
-}
-.motto-quote{
-  font-size: clamp(1.1rem, 2.5vw, 2rem);
-  font-weight:600;
-  line-height:1.5;
-  margin-bottom:1.5rem;
-}
-.motto-desc{ color:#6b7280; line-height:2; font-size:clamp(.88rem,1.5vw,1.05rem); }
 
 /* ── TECH STACK ── */
 #tech-stack{ background: var(--bg-secondary); }
@@ -718,11 +722,35 @@ footer { background:var(--bg-card); text-align:center; padding:1.5rem 1rem; bord
    ════════════════════════════════ */
 @media (max-width: 600px) {
   .hero {
+    min-height: auto;
     height: auto;
-    min-height: unset;
-    max-height: unset;
+    padding-bottom: 0;
+    margin-bottom: 0;
   }
-  .hero-text { padding: 0 0.8rem 0 0.8rem; }
+  
+.hero-inner{
+    flex-direction: row;
+    align-items: center;
+}
+
+.hero-text{
+    flex: 0 0 48%;
+    max-width: 48%;
+    margin-top: 25px;
+}
+
+.hero-photo-col{
+    flex: 0 0 52%;
+    max-width: 52%;
+    height: 280px;
+}
+
+.hero-photo{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    clip-path:polygon(5% 0,100% 0,100% 100%,0 100%);
+}
   .hero-text h1 { font-size: clamp(1rem, 5.5vw, 1.4rem); }
   .hero-role-word, .hero-role-accent { font-size: clamp(0.85rem, 4.5vw, 1.1rem); }
   .hero-desc { font-size: 0.72rem; margin-bottom: 0.8rem; }
@@ -744,7 +772,7 @@ footer { background:var(--bg-card); text-align:center; padding:1.5rem 1rem; bord
 
 /* Mobile (≤ 600px) — scale only, never stack */
 @media (max-width: 600px) {
-  section { padding: 2.2rem .75rem; }
+  section { padding: .8rem .75rem; }
 
   .section-title { font-size: clamp(1.2rem, 5vw, 1.8rem); margin-bottom: 1rem; }
   .section-title::after { width: 32px; }
@@ -776,28 +804,42 @@ footer { background:var(--bg-card); text-align:center; padding:1.5rem 1rem; bord
   .tab-mini-card p { font-size: .68rem; }
   .sub-tab { font-size: .72rem; padding: 5px 11px; }
 
-  /* Experience */
-  .experience-card-clean { border-radius: 16px; }
-  .experience-card-clean h3 { font-size: 1.3rem; }
-  .exp-points li { font-size: .76rem; }
+  /* ===== ACHIEVEMENTS (mobile small cards, keep 2 cols) ===== */
+@media (max-width:600px){
 
-  /* Beyond Tech — keep columns, shrink */
-  .beyond-layout { gap: .8rem; }
-  .beyond-layout { grid-template-columns: 1fr 1.4fr; }
-  .interest-card { padding: .8rem; border-radius: 14px; }
-  .interest-card h4 { font-size: .82rem; }
-  .interest-card p { font-size: .72rem; }
-  .beyond-right { padding: 1rem; border-radius: 16px; }
-  .beyond-right h3 { font-size: 1rem; margin-bottom: .5rem; }
-  .beyond-right p { font-size: .75rem; line-height: 1.6; }
+  .achievement-grid{
+      display:flex;
+      justify-content:center;
+      gap:.5rem;
+      flex-wrap:nowrap;
+      overflow:hidden;
+  }
 
-  /* Motto — keep columns, shrink */
-  .motto-wrapper { gap: .6rem; grid-template-columns: 60px 1fr; }
-  .motto-side-text { font-size: .6rem; letter-spacing: 2px; gap: .5rem; }
-  .motto-card { padding: 1.1rem; border-radius: 16px; }
-  .quote-mark { font-size: 3rem; top: -10px; left: 15px; }
-  .motto-quote { font-size: .9rem; margin-bottom: .8rem; }
-  .motto-desc { font-size: .75rem; line-height: 1.6; }
+  .achievement-item{
+      flex:0 0 48%;
+      max-width:48%;
+      padding:1rem .5rem;
+      border-radius:18px;
+      min-width:0;
+  }
+
+  .achievement-item h3{
+      font-size:.95rem;
+      line-height:1.3;
+      margin-bottom:.6rem;
+  }
+
+  .achievement-item p{
+      font-size:.7rem;
+      line-height:1.5;
+  }
+
+  .achievement-icon{
+      font-size:1.8rem;
+      margin-bottom:.6rem;
+  }
+
+}
 
   /* Tech Stack — keep 2 cols, shrink */
   .stack-grid { gap: .8rem; }
@@ -821,15 +863,7 @@ footer { background:var(--bg-card); text-align:center; padding:1.5rem 1rem; bord
 
 }
 
-/* Very small (≤ 380px) — further shrink, still no stacking */
-@media (max-width: 380px) {
-  .beyond-layout { grid-template-columns: 1fr 1.2fr; gap: .5rem; }
-  .motto-wrapper { grid-template-columns: 48px 1fr; gap: .4rem; }
-  .motto-side-text { font-size: .5rem; letter-spacing: 1px; }
-  .stack-grid { gap: .5rem; }
-  .growth-story { gap: .4rem; }
-  .story-arrow { font-size: 1rem; }
-}
+
 </style>
 </head>
 <body>
@@ -857,7 +891,7 @@ footer { background:var(--bg-card); text-align:center; padding:1.5rem 1rem; bord
           <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">More</a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#beyond-tech">Beyond Tech</a></li>
-            <li><a class="dropdown-item" href="#motto">Motto</a></li>
+        
             <li><a class="dropdown-item" href="#tech-stack">Tech Stack</a></li>
             <li><a class="dropdown-item" href="#roasting">Roasting Corner</a></li>
           </ul>
@@ -876,14 +910,14 @@ footer { background:var(--bg-card); text-align:center; padding:1.5rem 1rem; bord
   <div class="hero-inner">
     <!-- LEFT — text -->
     <div class="hero-text">
-      <h3>Hi, I'm <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Archana M</span></h3>
+      <h3>Hi,<br> I'm <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Archana M</span></h3>
       <div class="hero-role-line">
         
-        <span class="hero-role-accent">AI</span>
-        <span class="hero-role-word">Enthusiast</span>
+        <span class="hero-role-accent">Python</span>
+        <span class="hero-role-word">Developer</span>
       </div>
       <p class="hero-desc">
-        Once someone who tried to avoid coding , .........
+        Once someone who tried to avoid coding .........
       </p>
       <div class="hero-cta">
         <a href="#projects" class="btn-primary-grad"><i class="fas fa-rocket"></i> View Projects</a>
@@ -912,13 +946,13 @@ footer { background:var(--bg-card); text-align:center; padding:1.5rem 1rem; bord
       <p class="about-teaser">A developer who started with zero confidence but endless curiosity. Now building clean, data-driven experiences — one project at a time.</p>
       <div class="text-center mb-1">
         <button class="read-more-btn" id="readMoreBtn">
-          <i class="fas fa-book-open" style="font-size:.82rem;"></i> Read My Story
+          <i class="fas fa-book-open" style="font-size:.82rem;"></i> Read My Short Intro
         </button>
       </div>
       <div class="about-full-content" id="aboutFullContent">
         <div style="margin-top:1.8rem; padding-top:1.5rem; border-top:1px solid rgba(79,70,229,.1);">
           <p style="color:var(--text-secondary); line-height:1.8; margin-bottom:1rem;">
-            I'm <strong style="color:var(--text-primary);">Archana M</strong> — a recent CSE graduate. Proficient in Python, SQL, and data visualization, I have hands-on experience in web development and data analysis through academic and personal projects.
+            I'm <strong style="color:var(--text-primary);">Archana M</strong> — a recent Computer Science and Engineering graduate from Nehru College with a Cgpa <strong>9.32 . </strong>I am a Self taught <strong>Python FullStack developer </strong> with a strong interest in Python development,Django, web technologies, and data analytics. Proficient in Python, SQL, Django, and data visualization tools, I have gained hands-on experience through academic and personal projects.
           </p>
         </div>
       </div>
@@ -981,10 +1015,10 @@ footer { background:var(--bg-card); text-align:center; padding:1.5rem 1rem; bord
       </div>
       <div class="ai-card">
         <div class="ai-badge" style="background:var(--pastel-pink); border-color:rgba(251,207,232,.5); color:#9d174d;">Mental Wellness 😄</div>
-        <h3>Drama Management Bureau</h3>
+        <h3>TheraRoast AI</h3>
         <p class="ai-sub">AI Therapy... But Make It Funny</p>
         <p>An AI-based mental wellness app that gives you relief by roasting your situation humorously — then ends with genuine motivation to restart stronger.</p>
-        <div class="ai-tags"><span>Groq API</span><span>Node Js</span><span>Express.Js</span><span>Web</span><span>Fun AI</span></div>
+        <div class="ai-tags"><span>Django</span><span>Html</span><span>Js</span><span>CSS</span><span>Gemini API</span></div>
       </div>
       <div class="ai-card">
         <div class="ai-badge">Web App</div>
@@ -1006,6 +1040,7 @@ footer { background:var(--bg-card); text-align:center; padding:1.5rem 1rem; bord
       <button class="sub-tab active" onclick="switchSub(this,'dp-python')">🐍 Python</button>
       <button class="sub-tab" onclick="switchSub(this,'dp-tableau')">📈 Tableau</button>
       <button class="sub-tab" onclick="switchSub(this,'dp-excel')">📗 Excel</button>
+       <button class="sub-tab" onclick="switchSub(this,'dp-endtoend')">📊 End-to-End</button>
     </div>
     <div class="sub-panel active" id="dp-python">
       <div class="popup-project-grid">
@@ -1030,9 +1065,7 @@ footer { background:var(--bg-card); text-align:center; padding:1.5rem 1rem; bord
       <div class="tableau-mini-grid">
         <div class="tab-mini-card"><div class="t-icon">✈️</div><h5>Air Travel Analysis</h5><p>Airline trends, passenger insights &amp; route performance.</p></div>
         <div class="tab-mini-card"><div class="t-icon">🏠</div><h5>Airbnb Analytics</h5><p>Pricing, availability &amp; location-based trends.</p></div>
-        <div class="tab-mini-card"><div class="t-icon">⛏️</div><h5>Coal Production Analysis</h5><p>Regional performance &amp; industry production trends.</p></div>
         <div class="tab-mini-card"><div class="t-icon">🦠</div><h5>COVID-19 India Dashboard</h5><p>Cases, recoveries &amp; state-wise trends.</p></div>
-        <div class="tab-mini-card"><div class="t-icon">👥</div><h5>Customer Analytics</h5><p>Customer behavior &amp; sales performance.</p></div>
         <div class="tab-mini-card"><div class="t-icon">📱</div><h5>Google Play Store</h5><p>App ratings, installs, categories &amp; user trends.</p></div>
         <div class="tab-mini-card"><div class="t-icon">🏥</div><h5>Healthcare Analytics</h5><p>Patient trends &amp; healthcare performance metrics.</p></div>
         <div class="tab-mini-card"><div class="t-icon">🏡</div><h5>House Sales Analysis</h5><p>Housing prices, property trends &amp; sales factors.</p></div>
@@ -1064,21 +1097,78 @@ footer { background:var(--bg-card); text-align:center; padding:1.5rem 1rem; bord
         </div>
       </div>
     </div>
+
+   <div class="sub-panel" id="dp-endtoend">
+  <div class="popup-project-grid">
+
+    <div class="popup-proj-card">
+      <div class="popup-proj-num" style="color:rgba(52,211,153,.2);">01</div>
+
+      <h4>Vendor Performance Analysis Dashboard</h4>
+
+      <p>
+        End-to-end data analytics project involving data cleaning, transformation,
+        analysis, and visualization to evaluate vendor sales performance, profit
+        margins, and business profitability.
+      </p>
+
+      <div class="skill-tags">
+        <span class="skill-tag"
+          style="background:rgba(52,211,153,.1); color:#065f46; border-color:rgba(52,211,153,.25);">
+          SQL
+        </span>
+
+        <span class="skill-tag"
+          style="background:rgba(52,211,153,.1); color:#065f46; border-color:rgba(52,211,153,.25);">
+          Python
+        </span>
+
+        <span class="skill-tag"
+          style="background:rgba(52,211,153,.1); color:#065f46; border-color:rgba(52,211,153,.25);">
+          Pandas
+        </span>
+
+        <span class="skill-tag"
+          style="background:rgba(52,211,153,.1); color:#065f46; border-color:rgba(52,211,153,.25);">
+          NumPy
+        </span>
+
+        <span class="skill-tag"
+          style="background:rgba(52,211,153,.1); color:#065f46; border-color:rgba(52,211,153,.25);">
+          Power BI
+        </span>
+      </div>
+    </div>
+
   </div>
 </div>
 
-<!-- Experience -->
+  </div>
+</div>
+
+<!-- Achievements -->
 <section id="experience">
   <div class="container">
-    <h3 class="section-title">Experience</h3>
-    <div class="experience-card-clean fade-up">
-     
-      <h4>NASA Space Apps Challenge</h4>
-      <p style="color:var(--text-secondary); font-size:clamp(.85rem,1.5vw,.92rem); margin-top:.4rem; line-height:1.7;">Participated in the NASA Space Apps Challenge, where our team developed <strong style="color:var(--accent-primary);">AstraLens</strong>, an interactive lunar exploration platform using NASA datasets.</p>
-      <ul class="exp-points">
-        <li>Built an interactive lunar exploration platform using Apollo and LRO ShadowCam datasets.</li>
-        <li>Strengthened skills in teamwork, problem-solving, and data visualization.</li>
-      </ul>
+    <h2 class="section-title">Achievements</h2>
+
+    <div class="achievement-grid">
+
+      <div class="achievement-item slide-in from-left">
+        <div class="achievement-icon">🏆</div>
+        <h3>Academic Excellence</h3>
+        <p>
+          Secured an overall <strong>CGPA of 9.32</strong> and ranked among the top-performing students across all departments in the college.
+        </p>
+      </div>
+
+      <div class="achievement-item slide-in from-right">
+        <div class="achievement-icon">🚀</div>
+        <h3>NASA Space Apps Challenge</h3>
+        <p>
+          Participated in NASA Space Apps Challenge <strong> Hackathon </strong>and contributed to the development of <strong>AstraLens</strong>, an interactive lunar exploration platform using NASA datasets.
+        </p>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1111,24 +1201,7 @@ footer { background:var(--bg-card); text-align:center; padding:1.5rem 1rem; bord
   </div>
 </section>
 
-<!-- Motto -->
-<section id="motto">
-  <div class="container">
-    <h2 class="section-title">My <span class="accent">Motto</span></h2>
-    <div class="motto-wrapper">
-      <div class="motto-side-text">
-        <span>MY</span>
-        <span>CORE</span>
-        <span>BELIEF</span>
-      </div>
-      <div class="motto-card">
-        <div class="quote-mark">"</div>
-        <p class="motto-quote">Continuous learning, consistency, and curiosity drive growth.</p>
-        <p class="motto-desc">I believe technology is a continuous learning journey. Every challenge becomes an opportunity to improve, learn, and build meaningful solutions.</p>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <!-- Tech Stack -->
 <section id="tech-stack">
@@ -1166,7 +1239,7 @@ footer { background:var(--bg-card); text-align:center; padding:1.5rem 1rem; bord
 <!-- Roasting Corner -->
 <section id="roasting">
   <div class="container">
-    <h2 class="section-title">A Little <span class="accent">About Me</span> (With Some Spice)</h2>
+    <h2 class="section-title">A Little <span class="accent">About Me</span> </h2>
     <div class="growth-story">
       <div class="story-card before">
         <span class="story-tag">BEFORE</span>
@@ -1237,7 +1310,7 @@ footer { background:var(--bg-card); text-align:center; padding:1.5rem 1rem; bord
 </div>
 
 <footer>
-  <p>© Archana M &nbsp;·&nbsp; DATA &amp; AI Enthusiast</p>
+  <p>© Archana M &nbsp;·&nbsp; Python Developer  </p>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -1331,6 +1404,22 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.2 });
 fadeElements.forEach(el => observer.observe(el));
 
+// Achievement cards slide in from sides on scroll
+const slideElements = document.querySelectorAll('.slide-in');
+
+const slideObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+
+    if (entry.isIntersecting) {
+      entry.target.classList.add('shown');
+    } else {
+      entry.target.classList.remove('shown');
+    }
+
+  });
+}, { threshold: 0.25 });
+
+slideElements.forEach(el => slideObserver.observe(el));
 // Fade sections
 const fadeSecObserver = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
