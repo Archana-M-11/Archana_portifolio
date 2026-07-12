@@ -98,6 +98,38 @@ nav.navbar {
 }
 .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(79,70,229,.38); }
 
+@media (max-width: 991px) {
+
+  .navbar-collapse{
+      background: white;
+      padding: 1rem;
+      margin-top: .8rem;
+      border-radius: 16px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.12);
+  }
+
+  .navbar-nav{
+      align-items: flex-start !important;
+  }
+
+  .nav-item{
+      width:100%;
+  }
+
+  .dropdown-menu{
+      position: static !important;
+      float: none;
+      width:100%;
+      border:none;
+      box-shadow:none;
+      margin-left:1rem;
+  }
+
+  .hero{
+      padding-top:120px;
+  }
+}
+
 /* ════════════════════════════════
    HERO — DESKTOP (≥ 768px)
    Fixed two-column, full viewport height
@@ -910,25 +942,20 @@ footer { background:var(--bg-card); text-align:center; padding:1.5rem 1rem; bord
   <div class="hero-inner">
     <!-- LEFT — text -->
     <div class="hero-text">
-      <h3>Hi,<br> I'm <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Archana M</span></h3>
+      <h3>Hi, I'm <br> <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Archana M</span></h3>
       <div class="hero-role-line">
         
         <span class="hero-role-accent">Python</span>
         <span class="hero-role-word">Developer</span>
       </div>
-      <p class="hero-desc">
-        Once someone who tried to avoid coding .........
-      </p>
+      <h4 class="hero-desc">
+        Once someone who tried to avoid coding...
+      </h4>
       <div class="hero-cta">
         <a href="#projects" class="btn-primary-grad"><i class="fas fa-rocket"></i> View Projects</a>
         <a href="#contact" class="btn-ghost"><i class="fas fa-paper-plane"></i> Hire Me</a>
       </div>
-      <div class="hero-socials">
-        <span class="hero-social-label">Follow</span>
-        <a href="https://www.linkedin.com/in/archanamofficial/" target="_blank" class="hero-social-icon"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://github.com/archana-m-11" target="_blank" class="hero-social-icon"><i class="fab fa-github"></i></a>
-        <a href="mailto:archanamnair096@gmail.com" class="hero-social-icon"><i class="fas fa-envelope"></i></a>
-      </div>
+    
     </div>
 
     <!-- RIGHT — photo -->
@@ -952,7 +979,7 @@ footer { background:var(--bg-card); text-align:center; padding:1.5rem 1rem; bord
       <div class="about-full-content" id="aboutFullContent">
         <div style="margin-top:1.8rem; padding-top:1.5rem; border-top:1px solid rgba(79,70,229,.1);">
           <p style="color:var(--text-secondary); line-height:1.8; margin-bottom:1rem;">
-            I'm <strong style="color:var(--text-primary);">Archana M</strong> — a recent Computer Science and Engineering graduate from Nehru College with a Cgpa <strong>9.32 . </strong>I am a Self taught <strong>Python FullStack developer </strong> with a strong interest in Python development,Django, web technologies, and data analytics. Proficient in Python, SQL, Django, and data visualization tools, I have gained hands-on experience through academic and personal projects.
+            I'm <strong style="color:var(--text-primary);">Archana M</strong> — a recent Computer Science and Engineering graduate from Nehru College with a Cgpa <strong> 9.32 . </strong>I am a Self taught <strong>Python FullStack developer </strong> with a strong interest in software development . Proficient in Python, SQL, Django, and data visualization tools, I have gained hands-on experience through academic and personal projects.
           </p>
         </div>
       </div>
@@ -1045,12 +1072,6 @@ footer { background:var(--bg-card); text-align:center; padding:1.5rem 1rem; bord
     <div class="sub-panel active" id="dp-python">
       <div class="popup-project-grid">
         <div class="popup-proj-card">
-          <div class="popup-proj-num">01</div>
-          <h4>911 Emergency Call Analysis</h4>
-          <p>Analyzed 911 data to identify call reasons, peak timings, top locations, and weekly/monthly trends through rich visualizations.</p>
-          <div class="skill-tags"><span class="skill-tag">Python</span><span class="skill-tag">Pandas</span><span class="skill-tag">NumPy</span><span class="skill-tag">Matplotlib</span><span class="skill-tag">Seaborn</span></div>
-        </div>
-        <div class="popup-proj-card">
           <div class="popup-proj-num">02</div>
           <h4>E-Commerce Customer Purchase Analysis</h4>
           <p>Analyzed purchase records to identify customer behavior, trends, top professions, language preferences, and buying patterns.</p>
@@ -1063,13 +1084,10 @@ footer { background:var(--bg-card); text-align:center; padding:1.5rem 1rem; bord
     </div>
     <div class="sub-panel" id="dp-tableau">
       <div class="tableau-mini-grid">
-        <div class="tab-mini-card"><div class="t-icon">✈️</div><h5>Air Travel Analysis</h5><p>Airline trends, passenger insights &amp; route performance.</p></div>
-        <div class="tab-mini-card"><div class="t-icon">🏠</div><h5>Airbnb Analytics</h5><p>Pricing, availability &amp; location-based trends.</p></div>
-        <div class="tab-mini-card"><div class="t-icon">🦠</div><h5>COVID-19 India Dashboard</h5><p>Cases, recoveries &amp; state-wise trends.</p></div>
-        <div class="tab-mini-card"><div class="t-icon">📱</div><h5>Google Play Store</h5><p>App ratings, installs, categories &amp; user trends.</p></div>
-        <div class="tab-mini-card"><div class="t-icon">🏥</div><h5>Healthcare Analytics</h5><p>Patient trends &amp; healthcare performance metrics.</p></div>
-        <div class="tab-mini-card"><div class="t-icon">🏡</div><h5>House Sales Analysis</h5><p>Housing prices, property trends &amp; sales factors.</p></div>
-        <div class="tab-mini-card"><div class="t-icon">👔</div><h5>HR Analytics</h5><p>Employee attrition, workforce &amp; HR metrics.</p></div>
+        <div class="tab-mini-card"><div class="t-icon">👔</div><h5>HR Analytics</h5><p>Developed an interactive HR Analytics Dashboard in Tableau to provide insights into employee attrition, workforce demographics, salary distribution, and support data-driven HR decision-making.<br><p>.</p>
+      <div class="skill-tags"><spam class="skill-tag">Tableau</spam><spam class="skill-tag">Data Visualization</spam><spam class="skill-tag">Filters</spam><spam class="skill-tag">Calculated Field</spam></div>
+      </div>
+      
       </div>
     </div>
     <div class="sub-panel" id="dp-excel">
@@ -1084,17 +1102,7 @@ footer { background:var(--bg-card); text-align:center; padding:1.5rem 1rem; bord
             <span class="skill-tag" style="background:rgba(52,211,153,.1); color:#065f46; border-color:rgba(52,211,153,.25);">KPIs</span>
             <span class="skill-tag" style="background:rgba(52,211,153,.1); color:#065f46; border-color:rgba(52,211,153,.25);">Charts</span>
           </div>
-        </div>
-        <div class="popup-proj-card">
-          <div class="popup-proj-num" style="color:rgba(52,211,153,.2);">02</div>
-          <h4>Google Play Store Analysis</h4>
-          <p>Analyzing app categories, ratings, installs, reviews, sentiment &amp; trends using Excel dashboarding techniques.</p>
-          <div class="skill-tags">
-            <span class="skill-tag" style="background:rgba(52,211,153,.1); color:#065f46; border-color:rgba(52,211,153,.25);">Excel</span>
-            <span class="skill-tag" style="background:rgba(52,211,153,.1); color:#065f46; border-color:rgba(52,211,153,.25);">Data Analysis</span>
-            <span class="skill-tag" style="background:rgba(52,211,153,.1); color:#065f46; border-color:rgba(52,211,153,.25);">Sentiment</span>
-          </div>
-        </div>
+        </div>  
       </div>
     </div>
 
@@ -1187,15 +1195,9 @@ footer { background:var(--bg-card); text-align:center; padding:1.5rem 1rem; bord
           <h4>🎵 Music</h4>
           <p>A space where I recharge & reset</p>
         </div>
-        <div class="interest-card">
-          <h4>🌱 Personal Growth</h4>
-          <p>Building confidence through experiences</p>
-        </div>
       </div>
       <div class="beyond-right">
-        <h3>Beyond Technology</h3>
-        <p>Outside tech, I enjoy music, stage performances, and cultural activities that helped me improve confidence and communication.</p>
-        <p>Participating in School Kalolsavam shaped my confidence and made me comfortable expressing ideas publicly.</p>
+        <p> Outside tech, I enjoy music and cultural activities. Participating in School Kalolsavam helped me build confidence, improve communication, and become comfortable expressing my ideas publicly.</p>
       </div>
     </div>
   </div>
@@ -1211,25 +1213,25 @@ footer { background:var(--bg-card); text-align:center; padding:1.5rem 1rem; bord
       <div class="stack-card">
         <h3>Web Development</h3>
         <div class="stack-tags">
-          <span>HTML</span><span>CSS</span><span>JavaScript</span><span>React</span><span>Django</span><span>SQLite</span><span>REST APIs</span>
+          <span>HTML</span><span>CSS</span><span>React</span><span>Django</span><span>REST APIs</span>
         </div>
       </div>
       <div class="stack-card">
         <h3>Tools</h3>
         <div class="stack-tags">
-          <span>Git</span><span>GitHub</span><span>VS Code</span><span>Postman</span><span>Render</span><span>vercel</span>
+          <span>Git</span><span>GitHub</span><span>VS Code</span><span>Postman</span><span>Render</span><span>vercel</span><span>Docker</span>
         </div>
       </div>
       <div class="stack-card">
-        <h3>Data</h3>
+        <h3>DataBase</h3>
         <div class="stack-tags">
-          </span><span>Tableau</span><span>Power BI</span><span>Excel</span>
+          </span><span>SQLite</span><span>postgreSQL</span><span>MongoDB</span><span>MySQL</span>
         </div>
       </div>
       <div class="stack-card">
         <h3>Programming</h3>
         <div class="stack-tags">
-          <span>Python</span><span>SQL(postgreSQL)</span>
+          <span>Python</span><span>JavaScript</span>
         </div>
       </div>
     </div>
@@ -1239,20 +1241,17 @@ footer { background:var(--bg-card); text-align:center; padding:1.5rem 1rem; bord
 <!-- Roasting Corner -->
 <section id="roasting">
   <div class="container">
-    <h2 class="section-title">A Little <span class="accent">About Me</span> </h2>
+    <h2 class="section-title">I went From </h2>
     <div class="growth-story">
       <div class="story-card before">
-        <span class="story-tag">BEFORE</span>
-        <h3>Why Coding? 😭</h3>
+        <h3>Why Coding? </h3>
         <p>Once someone who ran away from coding like it was a horror movie.</p>
-        <p>Bugs felt scary. Debugging felt impossible.</p>
+    
       </div>
       <div class="story-arrow">→</div>
       <div class="story-card after">
-        <span class="story-tag">NOW</span>
-        <h3>Why Not Explore More? 🚀</h3>
-        <p>Now building projects, debugging at 2 AM, and exploring AI, web development, and data analytics with curiosity.</p>
-        <p>Curiosity changed everything.</p>
+        <h3>Why Not Explore More? </h3>
+        <p>Now building projects, debugging at 2 AM, Curiosity changed everything.</p>
       </div>
     </div>
   </div>
@@ -1301,14 +1300,6 @@ footer { background:var(--bg-card); text-align:center; padding:1.5rem 1rem; bord
     </div>
   </div>
 </section>
-
-<!-- Easter Egg -->
-<div class="easter-egg" id="easterEgg">
-  <h2>🎉 Secret Found!</h2>
-  <p>You discovered the hidden Easter egg!<br>Thanks for exploring my portfolio! 🚀</p>
-  <button class="egg-close-btn" onclick="document.getElementById('easterEgg').classList.remove('active')">Close</button>
-</div>
-
 <footer>
   <p>© Archana M &nbsp;·&nbsp; Python Developer  </p>
 </footer>
